@@ -12,7 +12,4 @@ public class ContactList {
       private List<Contacts> contacts;
         private String Gmail;
 
-
-
-
 }
