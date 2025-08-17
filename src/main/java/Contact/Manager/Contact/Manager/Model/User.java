@@ -17,7 +17,6 @@ import java.util.List;
 @Document("users")
 public class User {
     @Id
-    private ObjectId objectId;
     @NonNull
     private String username;
     private String password;
