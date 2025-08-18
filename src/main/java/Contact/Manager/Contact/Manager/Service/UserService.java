@@ -14,7 +14,7 @@ public class UserService  {
      public void saveUser(User user) {
          userRepository.save(user);
      }
-        public User getUserById(String userName) {
+        public User findByUserName(String userName) {
             return userRepository.findByUserName(userName);
         }
         public List<User> getAllUsers() {
