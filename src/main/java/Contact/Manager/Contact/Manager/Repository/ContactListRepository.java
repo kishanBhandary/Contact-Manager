@@ -1,8 +1,8 @@
 package Contact.Manager.Contact.Manager.Repository;
 
 import Contact.Manager.Contact.Manager.Model.ContactList;
-import org.bson.types.ObjectId;
+import Contact.Manager.Contact.Manager.Model.Contacts;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ContactRepository extends MongoRepository<ContactList, ObjectId> {
+public interface ContactListRepository extends MongoRepository<Contacts,String> {
 }

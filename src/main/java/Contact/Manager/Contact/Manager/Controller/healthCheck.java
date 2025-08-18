@@ -1,0 +1,14 @@
+package Contact.Manager.Contact.Manager.Controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/public")
+
+public class healthCheck {
+    @RequestMapping("/health")
+    public String healthCheck() {
+        return "Service is up and running!";
+    }
+}

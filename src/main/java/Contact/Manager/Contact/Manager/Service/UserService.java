@@ -21,11 +21,14 @@ public class UserService  {
             return userRepository.findAll();
         }
         public void updateUser(User user) {
-            User existingUser = userRepository.findByUserName(user.getUsername());
+            User existingUser = userRepository.findByUserName(user.getUserName());
             if (existingUser != null) {
-                existingUser.setUsername(user.getUsername());
+                existingUser.setUserName(user.getUserName());
                 existingUser.setPassword(user.getPassword());
                 userRepository.save(existingUser);
+            }
+            else {
+                throw new RuntimeException("User not found with username: " + user.getUserName());
             }
         }
         public void deleteUser(String userName) {
