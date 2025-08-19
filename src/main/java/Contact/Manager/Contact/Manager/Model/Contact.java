@@ -8,6 +8,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,8 +18,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Contact {
     @Id
     private ObjectId id;
+
     private String name;
     private String email;
-    private String phone;
+    private List<PhoneEntry> phoneNumbers = new ArrayList<>();
+
 }
 
