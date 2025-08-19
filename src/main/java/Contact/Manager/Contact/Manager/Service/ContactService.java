@@ -39,4 +39,15 @@ public class ContactService {
             throw new RuntimeException("Contact not found with id: " + contactList.getId());
         }
     }
+
+//    public void deleteContact(ContactList contactList) {
+//        User user = userService.findByUserName(contactList.getUserName());
+//        if (user != null && user.getContactLists().removeIf(c -> c.getId().equals(contactList.getId()))) {
+//            contactRepository.delete(contactList);
+//            userService.saveUser(user);
+//        } else {
+//            throw new RuntimeException("Contact not found for user: " + contactList.getUserName());
+//        }
+//    }
+
 }
