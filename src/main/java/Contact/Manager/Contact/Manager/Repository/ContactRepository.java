@@ -6,5 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ContactRepository extends MongoRepository<ContactList, ObjectId> {
     ContactList findById(String id);
+    ContactList findByUserName(String userName);
 
 }

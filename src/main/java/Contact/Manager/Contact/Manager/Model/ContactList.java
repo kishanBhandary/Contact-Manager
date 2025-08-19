@@ -15,13 +15,11 @@ import java.util.List;
 @Document("contactLists")
 public class ContactList {
     @Id
-    public  ObjectId id;
+    public  String userName;
     private List<String> contactNames;
     private List<String> contactNumbers;
     @Email(message = "Invalid email format")
   private List<String> contactEmails;
-
-
     public ContactList(List<String> contactNames, List<String> contactNumbers, List<String> contactEmails, String userId) {
         this.contactNames = contactNames;
         this.contactNumbers = contactNumbers;
