@@ -45,7 +45,10 @@ public class FinalContactService {
         User user = userService.findByUserName(userName);
         if(user != null) {
             finalContact.getAddresses().add(addressModel);
-            contactRepository.save(finalContact);
+            FinalContact save = contactRepository.save(finalContact);
+            user.getContacts().add(save);
+            userService.saveUser(user);
+
         }
         else {
             throw new RuntimeException("User not found with username: " + userName);
@@ -54,5 +57,23 @@ public class FinalContactService {
 
     private void saveFinalContact(FinalContact finalContact) {
         contactRepository.save(finalContact);
+    }
+
+    public void updateAddress(FinalContact finalContact, String userName, AddressModel addressModel) {
+        User user = userService.findByUserName(userName);
+        if(user != null) {
+            for (AddressModel address : finalContact.getAddresses()) {
+                if (address.getAddress().equals(addressModel.getAddress())) {
+                    address.setAddress(addressModel.getAddress());
+                    break;
+                }
+            }
+            FinalContact save = contactRepository.save(finalContact);
+            user.getContacts().add(save);
+            userService.saveUser(user);
+        }
+        else {
+            throw new RuntimeException("User not found with username: " + userName);
+        }
     }
 }
