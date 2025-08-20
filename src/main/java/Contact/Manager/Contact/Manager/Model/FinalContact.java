@@ -17,8 +17,6 @@ import java.util.List;
 public class FinalContact {
     @Id
     private ObjectId id;
-    private String name;
-    private String email;
     private List<PhoneNumberModel> phoneNumbers = new ArrayList<>();
     private List<GmailModel> gmail = new ArrayList<>();
     private List<AddressModel> addresses = new ArrayList<>();
