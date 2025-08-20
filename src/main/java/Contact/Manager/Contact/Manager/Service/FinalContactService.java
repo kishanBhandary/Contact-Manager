@@ -3,7 +3,6 @@ package Contact.Manager.Contact.Manager.Service;
 import Contact.Manager.Contact.Manager.Model.*;
 import Contact.Manager.Contact.Manager.Repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
 
 public class FinalContactService {
 
@@ -17,7 +16,9 @@ public class FinalContactService {
         User user = userService.findByUserName(userName);
         if(user != null) {
             finalContact.getPhoneNumbers().add(phoneNumberModel);
-            contactRepository.save(finalContact);
+            FinalContact save = contactRepository.save(finalContact);
+            user.getContacts().add(save);
+            userService.saveUser(user);
         }
         else {
             throw new RuntimeException("User not found with username: " + userName);
@@ -29,7 +30,9 @@ public class FinalContactService {
         User user = userService.findByUserName(userName);
         if(user != null) {
             finalContact.getGmail().add(gmailModel);
-            contactRepository.save(finalContact);
+            FinalContact save = contactRepository.save(finalContact);
+            user.getContacts().add(save);
+            userService.saveUser(user);
         }
         else {
             throw new RuntimeException("User not found with username: " + userName);
