@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhoneEntry {
+public class PhoneNumberModel {
     private String numberName;
     private String number;
-
 }

@@ -22,5 +22,5 @@ public class User {
     private String userName;
     private String password;
     @DBRef
-    private List<Contact> contacts = new ArrayList<>();
+    private List<FinalContact> contacts = new ArrayList<>();
 }
