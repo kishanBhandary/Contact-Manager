@@ -76,4 +76,22 @@ public class FinalContactService {
             throw new RuntimeException("User not found with username: " + userName);
         }
     }
+    public void updatePhoneNumber(FinalContact finalContact,String userName,PhoneNumberModel phoneNumberModel){
+        User user = userService.findByUserName(userName);
+        if(user!=null){
+            for (PhoneNumberModel phoneNumber : finalContact.getPhoneNumbers()) {
+                if (phoneNumber.getNumber().equals(phoneNumberModel.getNumber())) {
+                    phoneNumber.setNumber(phoneNumberModel.getNumber());
+                    break;
+                }
+            }
+            FinalContact save = contactRepository.save(finalContact);
+            user.getContacts().add(save);
+            userService.saveUser(user);
+        }
+        else {
+            throw new RuntimeException("User not found with username: " + userName);
+        }
+
+    }
 }
